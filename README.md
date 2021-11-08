@@ -1,6 +1,42 @@
 # string-format-benchmark
 benchmark new string-format in jdk17
 
+## Code
+
+**Concat using (+)**
+
+```java
+"<h1>" + question + "</h1><ol><li>" + answer1 +
+    "</li><li>" + answer2 + "</li><li>" + answer3 + "</li></ol>"
+```
+
+**StringBuilder**
+
+```java
+new StringBuilder().append("<h1>").append(question)
+    .append("</h1><ol><li>").append(answer1)
+    .append("</li><li>").append(answer2)
+    .append("</li><li>").append(answer3)
+    .append("</li></ol>").toString()
+```
+
+**String.format**
+
+```java
+String.format("<h1>%s</h1><ol><li>%s</li><li>%s</li><li>%s</li></ol>", question, answer1, answer2, answer3)
+```
+
+## Sample String
+
+```html
+<h1>Life is unfair</h1>
+<ol>
+  <li>Yes</li>
+  <li>no</li>
+  <li>maybe</li>
+</ol>
+```
+
 ## Result
 ```
 jdk8
